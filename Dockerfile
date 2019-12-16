@@ -1,6 +1,9 @@
 FROM mattocci/r-debian
 
 # R pkgs
-RUN install2.r --error \
-  lazyeval \
-  pbmcapply
+RUN  apt update && apt install -y \
+  peco \
+  && install2.r --error \
+    --deps TRUE \
+    lazyeval \
+    pbmcapply
